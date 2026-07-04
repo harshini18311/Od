@@ -1,0 +1,233 @@
+# Login List
+
+## Students
+- 24ucs001 / 24ucs001
+- 24ucs002 / 24ucs002
+- 24ucs003 / 24ucs003
+- 24ucs004 / 24ucs004
+- 24ucs005 / 24ucs005
+- 24ucs006 / 24ucs006
+- 24ucs007 / 24ucs007
+- 24ucs008 / 24ucs008
+- 24ucs009 / 24ucs009
+- 24ucs010 / 24ucs010
+- 24ucs011 / 24ucs011
+- 24ucs012 / 24ucs012
+- 24ucs013 / 24ucs013
+- 24ucs014 / 24ucs014
+- 24ucs015 / 24ucs015
+- 24ucs016 / 24ucs016
+- 24ucs017 / 24ucs017
+- 24ucs018 / 24ucs018
+- 24ucs019 / 24ucs019
+- 24ucs020 / 24ucs020
+- 24ucs021 / 24ucs021
+- 24ucs022 / 24ucs022
+- 24ucs023 / 24ucs023
+- 24ucs024 / 24ucs024
+- 24ucs025 / 24ucs025
+- 24ucs026 / 24ucs026
+- 24ucs027 / 24ucs027
+- 24ucs028 / 24ucs028
+- 24ucs029 / 24ucs029
+- 24ucs030 / 24ucs030
+- 24ucs031 / 24ucs031
+- 24ucs032 / 24ucs032
+- 24ucs033 / 24ucs033
+- 24ucs034 / 24ucs034
+- 24ucs035 / 24ucs035
+- 24ucs036 / 24ucs036
+- 24ucs037 / 24ucs037
+- 24ucs038 / 24ucs038
+- 24ucs039 / 24ucs039
+- 24ucs040 / 24ucs040
+- 24ucs041 / 24ucs041
+- 24ucs042 / 24ucs042
+- 24ucs043 / 24ucs043
+- 24ucs044 / 24ucs044
+- 24ucs045 / 24ucs045
+- 24ucs046 / 24ucs046
+- 24ucs047 / 24ucs047
+- 24ucs048 / 24ucs048
+- 24ucs049 / 24ucs049
+- 24ucs050 / 24ucs050
+- 24ucs051 / 24ucs051
+- 24ucs052 / 24ucs052
+- 24ucs053 / 24ucs053
+- 24ucs054 / 24ucs054
+- 24ucs055 / 24ucs055
+- 24ucs056 / 24ucs056
+- 24ucs057 / 24ucs057
+- 24ucs058 / 24ucs058
+- 24ucs059 / 24ucs059
+- 24ucs060 / 24ucs060
+- 24ucs061 / 24ucs061
+- 24ucs062 / 24ucs062
+- 24ucs063 / 24ucs063
+- 24ucs064 / 24ucs064
+- 24ucs065 / 24ucs065
+- 24ucs066 / 24ucs066
+- 24ucs067 / 24ucs067
+- 24ucs068 / 24ucs068
+- 24ucs069 / 24ucs069
+- 24ucs070 / 24ucs070
+- 24ucs071 / 24ucs071
+- 24ucs072 / 24ucs072
+- 24ucs073 / 24ucs073
+- 24ucs074 / 24ucs074
+- 24ucs075 / 24ucs075
+- 24ucs076 / 24ucs076
+- 24ucs077 / 24ucs077
+- 24ucs078 / 24ucs078
+- 24ucs079 / 24ucs079
+- 24ucs080 / 24ucs080
+- 24ucs081 / 24ucs081
+- 24ucs082 / 24ucs082
+- 24ucs083 / 24ucs083
+- 24ucs084 / 24ucs084
+- 24ucs085 / 24ucs085
+- 24ucs086 / 24ucs086
+- 24ucs087 / 24ucs087
+- 24ucs088 / 24ucs088
+- 24ucs089 / 24ucs089
+- 24ucs090 / 24ucs090
+- 24ucs091 / 24ucs091
+- 24ucs092 / 24ucs092
+- 24ucs093 / 24ucs093
+- 24ucs094 / 24ucs094
+- 24ucs095 / 24ucs095
+- 24ucs096 / 24ucs096
+- 24ucs097 / 24ucs097
+- 24ucs098 / 24ucs098
+- 24ucs099 / 24ucs099
+- 24ucs100 / 24ucs100
+- 24ucs101 / 24ucs101
+- 24ucs102 / 24ucs102
+- 24ucs103 / 24ucs103
+- 24ucs104 / 24ucs104
+- 24ucs105 / 24ucs105
+- 24ucs106 / 24ucs106
+- 24ucs107 / 24ucs107
+- 24ucs108 / 24ucs108
+- 24ucs109 / 24ucs109
+- 24ucs110 / 24ucs110
+- 24ucs111 / 24ucs111
+- 24ucs112 / 24ucs112
+- 24ucs113 / 24ucs113
+- 24ucs114 / 24ucs114
+- 24ucs115 / 24ucs115
+- 24ucs116 / 24ucs116
+- 24ucs117 / 24ucs117
+- 24ucs118 / 24ucs118
+- 24ucs119 / 24ucs119
+- 24ucs120 / 24ucs120
+- 24ucs121 / 24ucs121
+- 24ucs122 / 24ucs122
+- 24ucs123 / 24ucs123
+- 24ucs124 / 24ucs124
+- 24ucs125 / 24ucs125
+- 24ucs126 / 24ucs126
+- 24ucs127 / 24ucs127
+- 24ucs128 / 24ucs128
+- 24ucs129 / 24ucs129
+- 24ucs130 / 24ucs130
+- 24ucs131 / 24ucs131
+- 24ucs132 / 24ucs132
+- 24ucs133 / 24ucs133
+- 24ucs134 / 24ucs134
+- 24ucs135 / 24ucs135
+- 24ucs136 / 24ucs136
+- 24ucs137 / 24ucs137
+- 24ucs138 / 24ucs138
+- 24ucs139 / 24ucs139
+- 24ucs140 / 24ucs140
+- 24ucs141 / 24ucs141
+- 24ucs142 / 24ucs142
+- 24ucs143 / 24ucs143
+- 24ucs144 / 24ucs144
+- 24ucs145 / 24ucs145
+- 24ucs146 / 24ucs146
+- 24ucs147 / 24ucs147
+- 24ucs148 / 24ucs148
+- 24ucs149 / 24ucs149
+- 24ucs150 / 24ucs150
+- 24ucs151 / 24ucs151
+- 24ucs152 / 24ucs152
+- 24ucs153 / 24ucs153
+- 24ucs154 / 24ucs154
+- 24ucs155 / 24ucs155
+- 24ucs156 / 24ucs156
+- 24ucs157 / 24ucs157
+- 24ucs158 / 24ucs158
+- 24ucs159 / 24ucs159
+- 24ucs160 / 24ucs160
+- 24ucs161 / 24ucs161
+- 24ucs162 / 24ucs162
+- 24ucs163 / 24ucs163
+- 24ucs164 / 24ucs164
+- 24ucs165 / 24ucs165
+- 24ucs166 / 24ucs166
+- 24ucs167 / 24ucs167
+- 24ucs168 / 24ucs168
+- 24ucs169 / 24ucs169
+- 24ucs170 / 24ucs170
+- 24ucs171 / 24ucs171
+- 24ucs172 / 24ucs172
+- 24ucs173 / 24ucs173
+- 24ucs174 / 24ucs174
+- 24ucs175 / 24ucs175
+- 24ucs176 / 24ucs176
+- 24ucs177 / 24ucs177
+- 24ucs178 / 24ucs178
+- 24ucs179 / 24ucs179
+- 24ucs180 / 24ucs180
+- 24ucs181 / 24ucs181
+- 24ucs182 / 24ucs182
+- 24ucs183 / 24ucs183
+- 24ucs184 / 24ucs184
+- 24ucs185 / 24ucs185
+- 24ucs187 / 24ucs187
+- 24ucs188 / 24ucs188
+- 24ucs189 / 24ucs189
+- 24ucs190 / 24ucs190
+- 24ucs191 / 24ucs191
+- 24ucs192 / 24ucs192
+
+## Staff / HOD / Admin
+- admin: admin@cse / Test123
+- chairperson: anandh@cse / Test123
+- chairperson: athilakshmi@cse / Test123
+- chairperson: priyadharshini@cse / Test123
+- hod: hod@cse / Test123
+- mentor: anandhlavanya@cse / Test123
+- mentor: archanadevi@cse / Test123
+- mentor: asir@cse / Test123
+- mentor: athilakshmi.mentor@cse / Test123
+- mentor: divya@cse / Test123
+- mentor: ignatiusselvarani@cse / Test123
+- mentor: johnlivingston@cse / Test123
+- mentor: kumaravel@cse / Test123
+- mentor: leelarani@cse / Test123
+- mentor: mariasobana@cse / Test123
+- mentor: meenakshi@cse / Test123
+- mentor: mohana@cse / Test123
+- mentor: muthuchelvi@cse / Test123
+- mentor: muthukrishnavinayagam@cse / Test123
+- mentor: pradhiba@cse / Test123
+- mentor: praveenkumar@cse / Test123
+- mentor: priyadharshini.mentor@cse / Test123
+- mentor: pushpalatha@cse / Test123
+- mentor: raj@cse / Test123
+- mentor: rajeshkannan@cse / Test123
+- mentor: ramprasath@cse / Test123
+- mentor: rohinipriya@cse / Test123
+- mentor: saraswathi@cse / Test123
+- mentor: shalompriscilla@cse / Test123
+- mentor: sundararajukavitha@cse / Test123
+- mentor: umamaheswari@cse / Test123
+- mentor: vijayalakshmi@cse / Test123
+- principal: principal@kcet / Test123
+
+Notes:
+- Students use roll number in lowercase for both username and password.
+- Staff, HOD, and admin use Test123 as the password.

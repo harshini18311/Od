@@ -1,0 +1,99 @@
+// server/prisma/schema.prisma
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String         @id @default(uuid())
+  name         String
+  email        String         @unique
+  passwordHash String
+  role         String         // student, mentor, chairperson, hod, principal, warden, admin
+  deptId       String?
+  createdAt    DateTime       @default(now())
+  
+  department   Department?    @relation("DeptUsers", fields: [deptId], references: [id])
+  student      Student?
+  chairpersonStudents Student[] @relation("StudentChairperson")
+  logs         ApprovalLog[]
+  notifications Notification[]
+}
+
+model Department {
+  id        String   @id @default(uuid())
+  name      String
+  code      String   @unique
+  hodId     String?  // References User ID of HOD
+  
+  users     User[]   @relation("DeptUsers")
+  students  Student[]
+}
+
+model Student {
+  id        String      @id @default(uuid())
+  userId    String      @unique
+  regNo     String      @unique
+  year      Int
+  section   String
+  type      String      // DAY_SCHOLAR, HOSTELLER
+  mentorId  String      // References User ID of Mentor
+  chairpersonId String?
+  deptId    String
+  
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  department Department @relation(fields: [deptId], references: [id])
+  chairperson User?     @relation("StudentChairperson", fields: [chairpersonId], references: [id])
+  requests  OdRequest[]
+}
+
+model OdRequest {
+  id           String        @id @default(uuid())
+  studentId    String
+  odCode       String        @unique // e.g. OD-2026-CSE-0042
+  eventName    String
+  collegeName  String
+  eventDate    DateTime
+  fromDate     DateTime
+  toDate       DateTime
+  reason       String
+  brochureUrl  String?
+  studentType  String        // DAY_SCHOLAR, HOSTELLER
+  currentStage String        // mentor_pending, chairperson_pending, hod_pending, principal_pending, completed
+  status       String        // PENDING, APPROVED, REJECTED
+  createdAt    DateTime      @default(now())
+  
+  student      Student       @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  logs         ApprovalLog[]
+  notifications Notification[]
+}
+
+model ApprovalLog {
+  id         String    @id @default(uuid())
+  odId       String
+  approverId String
+  role       String
+  action     String    // APPROVED, REJECTED
+  remarks    String?
+  timestamp  DateTime  @default(now())
+  
+  request    OdRequest @relation(fields: [odId], references: [id], onDelete: Cascade)
+  approver   User      @relation(fields: [approverId], references: [id], onDelete: Cascade)
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  odId      String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  request   OdRequest? @relation(fields: [odId], references: [id], onDelete: Cascade)
+}
