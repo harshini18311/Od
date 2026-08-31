@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
   timeout: 10000,
 });
 
@@ -42,6 +42,18 @@ export const authService = {
     const res = await api.post('/auth/login', { email, password });
     return res.data;
   },
+  requestStaffPasswordResetOtp: async (email) => {
+    const res = await api.post('/auth/staff/password-reset/request', { email });
+    return res.data;
+  },
+  verifyStaffPasswordResetOtp: async (email, otp) => {
+    const res = await api.post('/auth/staff/password-reset/verify', { email, otp });
+    return res.data;
+  },
+  completeStaffPasswordReset: async (email, newPassword) => {
+    const res = await api.post('/auth/staff/password-reset/complete', { email, newPassword });
+    return res.data;
+  },
   getMe: async () => {
     const res = await api.get('/auth/me');
     return res.data;
@@ -69,9 +81,15 @@ export const studentService = {
     });
     return res.data;
   },
-  getPdfUrl: (id) => {
-    const token = localStorage.getItem('kcet_od_token');
-    return `http://localhost:5000/api/student/request/${id}/pdf?token=${token}`;
+  downloadPdf: async (id) => {
+    const res = await api.get(`/student/request/${id}/pdf`, { responseType: 'blob' });
+    const url = window.URL.createObjectURL(new Blob([res.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `OD-LETTER-${id}.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
   }
 };
 
@@ -84,12 +102,30 @@ export const staffService = {
     const res = await api.post(`/staff/approve/${id}`, { remarks });
     return res.data;
   },
+  bulkApprove: async (requestIds, remarks) => {
+    const res = await api.post(`/staff/bulk-approve`, { requestIds, remarks });
+    return res.data;
+  },
   rejectRequest: async (id, remarks) => {
     const res = await api.post(`/staff/reject/${id}`, { remarks });
     return res.data;
   },
+  searchStudents: async (query) => {
+    const res = await api.get(`/staff/search-students?q=${encodeURIComponent(query)}`);
+    return res.data;
+  },
+  applyBulkOd: async (formData) => {
+    const res = await api.post('/staff/apply-bulk-od', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+    return res.data;
+  },
   getHistory: async () => {
     const res = await api.get('/staff/history');
+    return res.data;
+  },
+  getApprovedOds: async () => {
+    const res = await api.get('/staff/approved-ods');
     return res.data;
   }
 };
@@ -131,16 +167,23 @@ export const adminService = {
     const res = await api.get('/admin/report');
     return res.data;
   },
-  getExportUrl: () => {
-    const token = localStorage.getItem('kcet_od_token');
-    return `http://localhost:5000/api/admin/export?token=${token}`;
+  downloadExport: async () => {
+    const res = await api.get('/admin/export', { responseType: 'blob' });
+    const url = window.URL.createObjectURL(new Blob([res.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'OD-SYSTEM-REPORT.csv');
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
   }
 };
 
 export const publicService = {
   verifyOD: async (odCode) => {
     // Note the public endpoint doesn't require a token
-    const res = await axios.get(`http://localhost:5000/api/public/verify/${odCode}`);
+    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+    const res = await axios.get(`${baseUrl}/public/verify/${odCode}`);
     return res.data;
   }
 };

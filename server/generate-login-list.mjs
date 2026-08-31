@@ -18,8 +18,8 @@ async function main() {
     .map((user) => `- ${normalizeStudentLogin(user.email)} / ${normalizeStudentLogin(user.email)}`);
 
   const staff = users
-    .filter((user) => ['mentor', 'chairperson', 'hod', 'principal', 'admin'].includes(user.role))
-    .map((user) => `- ${user.role}: ${user.email} / Test123`);
+    .filter((user) => ['mentor', 'chairperson', 'hod', 'admin'].includes(user.role))
+    .map((user) => `- ${user.role}: ${user.email} / ${user.staffId || 'Test123'}`);
 
   const lines = [
     '# Login List',
@@ -32,7 +32,8 @@ async function main() {
     '',
     'Notes:',
     '- Students use roll number in lowercase for both username and password.',
-    '- Staff, HOD, and admin use Test123 as the password.'
+    '- Staff and HOD use the staff ID from the staff details sheet as the password.',
+    '- Admin remains on the shared admin password unless changed separately.'
   ];
 
   fs.writeFileSync('../LOGIN_LIST.md', lines.join('\n'), 'utf8');

@@ -1,0 +1,100 @@
+﻿=== STAFF FOUND IN DB ===
+ID: 132337dc-bb63-4dfa-a211-4d18682ced00 | Name: Dr.ANANDH. A | Email: anandh@cse | Role: chairperson
+ID: 49135caf-9a32-4693-b600-2cbedcd6aafe | Name: DEVANANDH P | Email: 25UCS004 | Role: student
+
+=== MENTEES / STUDENTS ASSIGNED IN DB (65 found) ===
+Roll/RegNo: 24UCS003     | Name: SHIVA DHARANI P S         | Year: 3 | Sec: C | Mentor: 128a1ac2-f818-483a-95be-923debb99ae3 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS009     | Name: PRAMILA J                 | Year: 3 | Sec: C | Mentor: 6987a356-c284-499b-9f0b-fdfdd6bb61fd | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS010     | Name: CHANDRAMADAV S            | Year: 3 | Sec: C | Mentor: 792bf688-7bd9-4524-9c17-ca0257f29cac | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS011     | Name: AAKASH A                  | Year: 3 | Sec: C | Mentor: 52af635e-174a-4f72-9845-4f8e4c42559b | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS012     | Name: VIGNESHWARAN R            | Year: 3 | Sec: C | Mentor: 73a49007-5e46-472a-93c5-0f434200add2 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS016     | Name: NAAVNEETH V R             | Year: 3 | Sec: C | Mentor: 117940a2-eb6f-4045-b50c-ae8525c619c7 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS022     | Name: REHAN SIDDIQ A            | Year: 3 | Sec: C | Mentor: 15507cb9-819d-4488-ae5f-59f284431856 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS023     | Name: DHANWANTH RAJ N           | Year: 3 | Sec: C | Mentor: 128a1ac2-f818-483a-95be-923debb99ae3 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS027     | Name: PADMA MUNISH DHANAJEYAN T | Year: 3 | Sec: C | Mentor: 4f9cedaf-ec08-4dca-ac09-707558f8863c | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS028     | Name: HARINI B                  | Year: 3 | Sec: C | Mentor: eeae2107-3867-45d8-bdbb-ee47010b31fe | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS030     | Name: SARAVANA KUMAR M          | Year: 3 | Sec: C | Mentor: 0f6464f8-935f-454e-99f2-5de4b4fa63db | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS031     | Name: PAVITRA DHARANITHA S      | Year: 3 | Sec: C | Mentor: 4f9cedaf-ec08-4dca-ac09-707558f8863c | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS032     | Name: PRAJAN Y                  | Year: 3 | Sec: C | Mentor: d121c89f-4f59-4ee9-a04a-23403189b557 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS033     | Name: SARWESVARAN P             | Year: 3 | Sec: C | Mentor: 78cb30af-2dc1-462d-9152-142cd504779f | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS039     | Name: GOBINATH M                | Year: 3 | Sec: C | Mentor: 8b987e89-b9b6-4598-b21c-eaff252b76cd | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS049     | Name: PRANAVMUTHUVEL B          | Year: 3 | Sec: C | Mentor: 117940a2-eb6f-4045-b50c-ae8525c619c7 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS057     | Name: JEGANNAATHAN S J          | Year: 3 | Sec: C | Mentor: 07a36ae9-532b-4d09-8ac2-a50188be42e6 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS058     | Name: NITHYASHREE K             | Year: 3 | Sec: C | Mentor: 07a36ae9-532b-4d09-8ac2-a50188be42e6 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS059     | Name: GURUPRASATH M             | Year: 3 | Sec: C | Mentor: 59177280-4577-41b5-b52f-427b422df834 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS060     | Name: SANJAY I                  | Year: 3 | Sec: C | Mentor: 31581362-db81-4ef0-b6df-924825027bef | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS062     | Name: NAGAVELRAJAN M            | Year: 3 | Sec: C | Mentor: 15507cb9-819d-4488-ae5f-59f284431856 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS068     | Name: HEMALATHA S               | Year: 3 | Sec: C | Mentor: 0f6464f8-935f-454e-99f2-5de4b4fa63db | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS071     | Name: DAKSHA MONIKA K O         | Year: 3 | Sec: C | Mentor: cff16400-f5c3-44ba-b42e-d3dfac345abf | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS072     | Name: SYED SHAJEEA S            | Year: 3 | Sec: C | Mentor: 60cbe621-abd0-4c8e-803c-3fa11d942bfb | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS077     | Name: PRIYADHARSHINI R          | Year: 3 | Sec: C | Mentor: 128a1ac2-f818-483a-95be-923debb99ae3 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS083     | Name: VAISHNAVI S               | Year: 3 | Sec: C | Mentor: 117940a2-eb6f-4045-b50c-ae8525c619c7 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS085     | Name: HARI KRISHNAN M           | Year: 3 | Sec: C | Mentor: e95bdbe6-d628-4d72-a15f-d29f185f6434 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS087     | Name: RENITHA U                 | Year: 3 | Sec: C | Mentor: e4472640-0487-4b56-a3b8-bba4e4b8d2c4 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS088     | Name: SUJITHA T                 | Year: 3 | Sec: C | Mentor: d121c89f-4f59-4ee9-a04a-23403189b557 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS090     | Name: BAVADARINI S              | Year: 3 | Sec: C | Mentor: 241a711c-16a0-4dcc-b418-e1f2a8807e32 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS093     | Name: PAULPANDI K               | Year: 3 | Sec: C | Mentor: 61ed6d9c-971d-4546-ab92-597245f17bd5 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS096     | Name: HARINATH S                | Year: 3 | Sec: C | Mentor: 0f6464f8-935f-454e-99f2-5de4b4fa63db | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS098     | Name: KIRUTHIKA A               | Year: 3 | Sec: C | Mentor: 59177280-4577-41b5-b52f-427b422df834 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS101     | Name: SUWEDHIKA S               | Year: 3 | Sec: C | Mentor: 276d84a4-f84a-4a86-8444-3408666cdd3d | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS108     | Name: MANOJKUMAR P              | Year: 3 | Sec: C | Mentor: eeae2107-3867-45d8-bdbb-ee47010b31fe | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS109     | Name: SHAFINA J                 | Year: 3 | Sec: C | Mentor: fdbad539-715f-459f-b1b7-9a14bcb9304d | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS114     | Name: KARTHIKA S                | Year: 3 | Sec: C | Mentor: 6987a356-c284-499b-9f0b-fdfdd6bb61fd | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS118     | Name: BHARATHI MEENA D          | Year: 3 | Sec: C | Mentor: 73a49007-5e46-472a-93c5-0f434200add2 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS119     | Name: SELVALAKSHMI S            | Year: 3 | Sec: C | Mentor: e95bdbe6-d628-4d72-a15f-d29f185f6434 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS122     | Name: RASHIKA G                 | Year: 3 | Sec: C | Mentor: 4f9cedaf-ec08-4dca-ac09-707558f8863c | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS127     | Name: VAITHEESHWARI S           | Year: 3 | Sec: C | Mentor: 31581362-db81-4ef0-b6df-924825027bef | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS130     | Name: SAMEER S                  | Year: 3 | Sec: C | Mentor: 52af635e-174a-4f72-9845-4f8e4c42559b | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS136     | Name: DHARANIKUMAR M            | Year: 3 | Sec: C | Mentor: 7db58358-e8a9-4012-a01b-80512fbf7d9e | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS140     | Name: YAZHINI K                 | Year: 3 | Sec: C | Mentor: 7db58358-e8a9-4012-a01b-80512fbf7d9e | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS144     | Name: SHRI DHARSHINI S          | Year: 3 | Sec: C | Mentor: 07a36ae9-532b-4d09-8ac2-a50188be42e6 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS145     | Name: MOHAMED PARVES M          | Year: 3 | Sec: C | Mentor: cff16400-f5c3-44ba-b42e-d3dfac345abf | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS148     | Name: DEEPIKA S                 | Year: 3 | Sec: C | Mentor: b7d8e266-9713-49b9-a3b0-5535ec392c0e | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS150     | Name: RAKSHIGA B G              | Year: 3 | Sec: C | Mentor: 792bf688-7bd9-4524-9c17-ca0257f29cac | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS152     | Name: SRI GAYATHRI S            | Year: 3 | Sec: C | Mentor: 31581362-db81-4ef0-b6df-924825027bef | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS155     | Name: SUREKA R                  | Year: 3 | Sec: C | Mentor: 78cb30af-2dc1-462d-9152-142cd504779f | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS159     | Name: NETHRA S                  | Year: 3 | Sec: C | Mentor: e4472640-0487-4b56-a3b8-bba4e4b8d2c4 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS163     | Name: SRIVARSHA T               | Year: 3 | Sec: C | Mentor: 61ed6d9c-971d-4546-ab92-597245f17bd5 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS165     | Name: VISHWA R                  | Year: 3 | Sec: C | Mentor: 8b987e89-b9b6-4598-b21c-eaff252b76cd | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS169     | Name: SANTHOSH KUMAR U          | Year: 3 | Sec: C | Mentor: 241a711c-16a0-4dcc-b418-e1f2a8807e32 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS171     | Name: ARIHARAN N                | Year: 3 | Sec: C | Mentor: 276d84a4-f84a-4a86-8444-3408666cdd3d | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS172     | Name: ABISHEK M                 | Year: 3 | Sec: C | Mentor: 339521dd-c7cd-487d-9130-0094a5f14ed3 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS173     | Name: VARSHINI PRIYA S          | Year: 3 | Sec: C | Mentor: 339521dd-c7cd-487d-9130-0094a5f14ed3 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS174     | Name: HARIHARASUDHAN S          | Year: 3 | Sec: C | Mentor: b7d8e266-9713-49b9-a3b0-5535ec392c0e | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS178     | Name: VEERENDHRA PANDDI G       | Year: 3 | Sec: C | Mentor: 73a49007-5e46-472a-93c5-0f434200add2 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS184     | Name: SRI RANJANI A             | Year: 3 | Sec: C | Mentor: 241a711c-16a0-4dcc-b418-e1f2a8807e32 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS185     | Name: BENOLIN B                 | Year: 3 | Sec: C | Mentor: 7db58358-e8a9-4012-a01b-80512fbf7d9e | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS189     | Name: AMEERA ALIMA U            | Year: 3 | Sec: C | Mentor: 78cb30af-2dc1-462d-9152-142cd504779f | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS190     | Name: KAVI PRAKASH P            | Year: 3 | Sec: C | Mentor: 61ed6d9c-971d-4546-ab92-597245f17bd5 | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS191     | Name: PRIYAN KUMAR K            | Year: 3 | Sec: C | Mentor: fdbad539-715f-459f-b1b7-9a14bcb9304d | Chair: Dr.ANANDH. A
+Roll/RegNo: 24UCS192     | Name: RAJA ROHITH S J           | Year: 3 | Sec: C | Mentor: cff16400-f5c3-44ba-b42e-d3dfac345abf | Chair: Dr.ANANDH. A
+
+=== SCANNING ORIGINAL EXCEL WORKBOOKS ===
+[Excel: Mentor-II-CSE-A.xlsx -> II CSE A] Roll: 25UCS018 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-II-CSE-A.xlsx -> II CSE A] Roll: 25UCS030 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-A.xlsx -> II CSE A] Roll: 25UCS112 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-A.xlsx -> II CSE A] Roll: 25UCS153 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-II-CSE-A.xlsx -> II CSE A] Roll: 25UCS169 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-B.xlsx -> II CSE B] Roll: 25UCS046 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-II-CSE-B.xlsx -> II CSE B] Roll: 25UCS068 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-B.xlsx -> II CSE B] Roll: 25UCS086 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-II-CSE-B.xlsx -> II CSE B] Roll: 25UCS115 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-C.xlsx -> II CSE C] Roll: 25UCS027 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-II-CSE-C.xlsx -> II CSE C] Roll: 25UCS043 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-C.xlsx -> II CSE C] Roll: 25UCS099 | Name:  | Mentor Column: DR.A.ANANDH & MS.S.LAVANYA
+[Excel: Mentor-II-CSE-C.xlsx -> II CSE C] Roll: 25UCS150 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MS.G.KAVITHA
+[Excel: Mentor-III-CSE-A.xlsx -> III CSE A] Roll: 24UCS021 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MRS.G.KAVITHA
+[Excel: Mentor-III-CSE-A.xlsx -> III CSE A] Roll: 24UCS061 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MRS.G.KAVITHA
+[Excel: Mentor-III-CSE-A.xlsx -> III CSE A] Roll: 24UCS131 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-A.xlsx -> III CSE A] Roll: 24UCS138 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-A.xlsx -> III CSE A] Roll: 24UCS158 | Name:  | Mentor Column: DR.A.ANANDH & MS. LAVANYA
+[Excel: Mentor-III-CSE-B.xlsx -> III CSE B] Roll: 24UCS019 | Name:  | Mentor Column: MR. G. SUNDARARAJU & MRS.G.KAVITHA
+[Excel: Mentor-III-CSE-B.xlsx -> III CSE B] Roll: 24UCS037 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-B.xlsx -> III CSE B] Roll: 24UCS050 | Name:  | Mentor Column: MR. G. SUNDARARAJU & MRS.G.KAVITHA
+[Excel: Mentor-III-CSE-B.xlsx -> III CSE B] Roll: 24UCS066 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-B.xlsx -> III CSE B] Roll: 24UCS124 | Name:  | Mentor Column: MR. G. SUNDARARAJU & MRS.G.KAVITHA
+[Excel: Mentor-III-CSE-C.xlsx -> III CSE C] Roll: 24UCS093 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MRS. G.KAVITHA
+[Excel: Mentor-III-CSE-C.xlsx -> III CSE C] Roll: 24UCS148 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-C.xlsx -> III CSE C] Roll: 24UCS163 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MRS. G.KAVITHA
+[Excel: Mentor-III-CSE-C.xlsx -> III CSE C] Roll: 24UCS174 | Name:  | Mentor Column: DR.A.ANANDH & MS. S.LAVANYA
+[Excel: Mentor-III-CSE-C.xlsx -> III CSE C] Roll: 24UCS190 | Name:  | Mentor Column: MR.G.SUNDARARAJU & MRS. G.KAVITHA

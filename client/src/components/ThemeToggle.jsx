@@ -10,12 +10,12 @@ export default function ThemeToggle() {
     <button
       onClick={toggleDarkMode}
       aria-label="Toggle Dark Mode"
-      className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 focus:outline-none dark:bg-navy-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100 transition-colors shadow-sm"
+      className="flex h-10 w-10 items-center justify-center rounded-xl border border-parchment bg-cream-dark text-brown-700 hover:bg-parchment hover:text-terra transition-all duration-300 dark:border-dark-border dark:bg-dark-card dark:text-brown-300 dark:hover:bg-dark-surface dark:hover:text-terra-light"
     >
       {darkMode ? (
-        <Sun className="h-5 w-5 text-amber-500 animate-pulse-fast" />
+        <Sun className="h-5 w-5 text-gold" />
       ) : (
-        <Moon className="h-5 w-5 text-slate-600" />
+        <Moon className="h-5 w-5" />
       )}
     </button>
   );

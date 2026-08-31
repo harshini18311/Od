@@ -3,7 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PrismaClient } from '@prisma/client';
+import prisma from './lib/prisma.js';
+import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
 // Import Route Handlers
@@ -16,7 +17,6 @@ import notificationRoutes from './routes/notifications.js';
 dotenv.config();
 
 const app = express();
-const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000;
 
 // ESM Helpers for static directories
@@ -28,7 +28,7 @@ app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true
 }));
-app.use(express.json());
+app.use(express.json({ limit: '100kb' }));
 
 // Serve static uploaded brochures from ./public/uploads
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -45,7 +45,13 @@ app.use('/api/notifications', notificationRoutes);
  * PUBLIC verification endpoint. No login required.
  * Scanned from QR Code, confirms OD validity.
  */
-app.get('/api/public/verify/:odCode', async (req, res) => {
+const verifyRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: { verified: false, error: 'Too many requests, please try again later.' }
+});
+
+app.get('/api/public/verify/:odCode', verifyRateLimit, async (req, res) => {
   const { odCode } = req.params;
 
   try {
@@ -171,6 +177,16 @@ async function checkStaleRequests() {
 // Run checks on server startup and then every 12 hours
 checkStaleRequests();
 setInterval(checkStaleRequests, 1000 * 60 * 60 * 12);
+
+// Global Error Handlers
+process.on('uncaughtException', (err) => {
+  console.error('[CRITICAL] Uncaught Exception:', err);
+  // Optional: Add logic to restart gracefully using PM2 or similar
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[CRITICAL] Unhandled Rejection at:', promise, 'reason:', reason);
+});
 
 // Start server
 app.listen(PORT, () => {

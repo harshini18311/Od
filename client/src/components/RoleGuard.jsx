@@ -13,10 +13,14 @@ export default function RoleGuard({ children, allowedRoles }) {
 
   if (loading) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-slate-50 dark:bg-navy-950">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Authenticating session...</p>
+      <div className="flex h-screen w-full items-center justify-center bg-cream dark:bg-dark-bg">
+        <div className="flex flex-col items-center space-y-5">
+          <div className="relative h-14 w-14">
+            <div className="absolute inset-0 rounded-full border-2 border-parchment dark:border-dark-border"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-terra border-t-transparent animate-spin"></div>
+            <div className="absolute inset-3 rounded-full border-2 border-olive border-b-transparent animate-spin-slow"></div>
+          </div>
+          <p className="text-sm font-semibold tracking-wide text-brown-500 dark:text-brown-400">Authenticating...</p>
         </div>
       </div>
     );
@@ -28,20 +32,22 @@ export default function RoleGuard({ children, allowedRoles }) {
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
     return (
-      <div className="flex h-screen w-full flex-col items-center justify-center bg-slate-50 px-4 text-center dark:bg-navy-950">
-        <div className="rounded-full bg-red-100 p-4 dark:bg-red-950/30">
-          <ShieldAlert className="h-12 w-12 text-red-600 dark:text-red-500" />
+      <div className="flex h-screen w-full flex-col items-center justify-center bg-cream px-4 text-center dark:bg-dark-bg">
+        <div className="card-warm p-10 max-w-md w-full text-center">
+          <div className="rounded-full bg-rust/10 p-5 w-20 h-20 mx-auto flex items-center justify-center mb-6">
+            <ShieldAlert className="h-10 w-10 text-rust" />
+          </div>
+          <h1 className="text-2xl font-serif font-bold text-brown-900 dark:text-cream mb-3">Access Restricted</h1>
+          <p className="text-sm text-brown-500 dark:text-brown-400 mb-8 leading-relaxed">
+            Your current role <strong className="text-terra">({user.role.toUpperCase()})</strong> does not have permission to access this page.
+          </p>
+          <button
+            onClick={() => window.history.back()}
+            className="btn-terra w-full py-3"
+          >
+            Go Back
+          </button>
         </div>
-        <h1 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Permission Denied</h1>
-        <p className="mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">
-          Your current account role <strong>({user.role.toUpperCase()})</strong> does not have permission to access this administrative dashboard.
-        </p>
-        <button
-          onClick={() => window.history.back()}
-          className="mt-6 rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20"
-        >
-          Go Back
-        </button>
       </div>
     );
   }

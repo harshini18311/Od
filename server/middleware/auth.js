@@ -3,7 +3,10 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET || 'tnec_od_approval_super_secret_jwt_sign_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error('FATAL ERROR: JWT_SECRET environment variable is not defined.');
+}
 
 /**
  * Middleware to enforce authentication via JWT tokens.
@@ -14,8 +17,6 @@ export function requireAuth(req, res, next) {
 
   if (authHeader && authHeader.startsWith('Bearer ')) {
     token = authHeader.split(' ')[1];
-  } else if (req.query.token) {
-    token = req.query.token;
   }
 
   if (!token) {

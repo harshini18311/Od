@@ -1,8 +1,6 @@
 // server/services/approvalEngine.js
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma.js';
 import { createNotification } from './notificationService.js';
-
-const prisma = new PrismaClient();
 
 /**
  * Handles the step approval process in the OD pipeline.
@@ -57,14 +55,33 @@ export async function processApprovalStep(odId, approverId, action, remarks) {
     if (currentStage === 'mentor_pending') expectedRole = 'mentor';
     else if (currentStage === 'chairperson_pending') expectedRole = 'chairperson';
     else if (currentStage === 'hod_pending') expectedRole = 'hod';
-    else if (currentStage === 'principal_pending') expectedRole = 'principal';
 
     if (approver.role !== expectedRole) {
-      throw new Error(`Unauthorized. This stage requires a ${expectedRole} but you are logged in as a ${approver.role}.`);
+      const isAssignedMentor = (currentStage === 'mentor_pending' && approverId === student.mentorId);
+      
+      if (!isAssignedMentor) {
+        throw new Error(`Unauthorized. This stage requires a ${expectedRole} but you are logged in as a ${approver.role}.`);
+      }
     }
 
-    if (currentStage === 'chairperson_pending' && student.chairpersonId && approverId !== student.chairpersonId) {
-      throw new Error('Unauthorized. This request is assigned to a different chairperson.');
+    if (currentStage === 'mentor_pending' && approverId !== student.mentorId) {
+      throw new Error('Unauthorized. You are not the assigned mentor for this student.');
+    }
+
+    if (currentStage === 'chairperson_pending') {
+      if (student.chairpersonId) {
+        if (approverId !== student.chairpersonId) {
+          throw new Error('Unauthorized. This request is assigned to a different chairperson.');
+        }
+      } else {
+        if (approver.role !== 'chairperson' || approver.deptId !== deptId) {
+          throw new Error("Unauthorized. You are not the chairperson of this student's department.");
+        }
+      }
+    }
+
+    if (currentStage === 'hod_pending' && approver.deptId !== deptId) {
+      throw new Error("Unauthorized. You are not the HOD of this student's department.");
     }
 
     // 4. Create Approval Log entry
@@ -72,7 +89,7 @@ export async function processApprovalStep(odId, approverId, action, remarks) {
       data: {
         odId,
         approverId,
-        role: approver.role,
+        role: expectedRole || approver.role,
         action,
         remarks: remarks || ''
       }
@@ -86,19 +103,16 @@ export async function processApprovalStep(odId, approverId, action, remarks) {
       nextStatus = 'REJECTED';
       nextStage = 'completed';
     } else {
-      // APPROVED Path
       if (currentStage === 'mentor_pending') {
         nextStage = 'chairperson_pending';
       } else if (currentStage === 'chairperson_pending') {
-        nextStage = 'hod_pending';
-      } else if (currentStage === 'hod_pending') {
-        if (isHosteller) {
-          nextStage = 'principal_pending';
-        } else {
+        if (odRequest.odType === 'INTERNAL' || odRequest.isStaffApplied) {
           nextStage = 'completed';
           nextStatus = 'APPROVED';
+        } else {
+          nextStage = 'hod_pending';
         }
-      } else if (currentStage === 'principal_pending') {
+      } else if (currentStage === 'hod_pending') {
         nextStage = 'completed';
         nextStatus = 'APPROVED';
       }
@@ -147,7 +161,7 @@ export async function processApprovalStep(odId, approverId, action, remarks) {
         notificationsToCreate.push({
           userId: chair.id,
           odId,
-          message: `Student ${studentUser.name} (${odRequest.odCode}) OD request has been fully approved by the HOD/Principal.`,
+          message: `Student ${studentUser.name} (${odRequest.odCode}) OD request has been fully approved by the department HOD/Chairperson.`,
         });
       }
 
@@ -159,27 +173,13 @@ export async function processApprovalStep(odId, approverId, action, remarks) {
           message: `OD Request ${odRequest.odCode} for ${studentUser.name} has been successfully completed and approved.`
         });
       }
-
-      if (isHosteller) {
-        const wardens = await tx.user.findMany({ where: { role: 'warden' } });
-        for (const w of wardens) {
-          notificationsToCreate.push({
-            userId: w.id,
-            odId,
-            message: `HOSTELLER OUTPASS CLEARANCE: Student ${studentUser.name} (Reg No: ${student.regNo}) has been granted OD leave from ${new Date(odRequest.fromDate).toLocaleDateString()} to ${new Date(odRequest.toDate).toLocaleDateString()}.`
-          });
-        }
-      }
     } else {
       let nextApproverRole = '';
       if (nextStage === 'chairperson_pending') nextApproverRole = 'chairperson';
       else if (nextStage === 'hod_pending') nextApproverRole = 'hod';
-      else if (nextStage === 'principal_pending') nextApproverRole = 'principal';
 
       let nextApproverUsers = [];
-      if (nextApproverRole === 'principal') {
-        nextApproverUsers = await tx.user.findMany({ where: { role: 'principal' } });
-      } else if (nextApproverRole === 'chairperson' && student.chairpersonId) {
+      if (nextApproverRole === 'chairperson' && student.chairpersonId) {
         nextApproverUsers = await tx.user.findMany({ where: { id: student.chairpersonId } });
       } else {
         nextApproverUsers = await tx.user.findMany({

@@ -15,6 +15,7 @@ import OdStatus from './pages/OdStatus';
 import StaffDashboard from './pages/StaffDashboard';
 import AdminPanel from './pages/AdminPanel';
 import VerifyOD from './pages/VerifyOD';
+import StaffPasswordReset from './pages/StaffPasswordReset';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Routes>
           {/* Public Entrance */}
           <Route path="/" element={<Landing />} />
+          <Route path="/staff/reset-password" element={<StaffPasswordReset />} />
 
           {/* Student Protected Portal */}
           <Route
@@ -54,7 +56,7 @@ export default function App() {
           <Route
             path="/staff"
             element={
-              <RoleGuard allowedRoles={['mentor', 'chairperson', 'hod', 'principal']}>
+              <RoleGuard allowedRoles={['mentor', 'chairperson', 'hod']}>
                 <StaffDashboard />
               </RoleGuard>
             }

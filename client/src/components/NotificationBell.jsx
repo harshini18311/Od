@@ -1,10 +1,11 @@
 // client/src/components/NotificationBell.jsx
 import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth } from '../context/AuthContext';
 import { Bell, CheckCircle2, XCircle, ArrowRightLeft, FileSpreadsheet } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-export default function NotificationBell() {
+export default function NotificationBell({ onNotificationClick }) {
   const { user, notifications, unreadNotifCount, markNotificationsAsRead } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -32,11 +33,17 @@ export default function NotificationBell() {
   const handleNotificationClick = (notif) => {
     setIsOpen(false);
     
-    // Redirect logic depending on role
+    // If a callback was provided (e.g. from StaffDashboard), pass the full notification object
+    if (onNotificationClick) {
+      onNotificationClick(notif);
+      return;
+    }
+
+    // Fallback redirect logic depending on role
     if (notif.odId) {
       if (user.role === 'student') {
         navigate(`/student/request/${notif.odId}`);
-      } else if (['mentor', 'chairperson', 'hod', 'principal'].includes(user.role)) {
+      } else if (['mentor', 'chairperson', 'hod'].includes(user.role)) {
         // Staff can go to dashboard
         navigate('/staff');
       } else if (user.role === 'admin') {
@@ -55,72 +62,101 @@ export default function NotificationBell() {
   const getNotifIcon = (message) => {
     const msg = message.toLowerCase();
     if (msg.includes('approved') || msg.includes('congratulations')) {
-      return <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />;
+      return <CheckCircle2 className="h-4 w-4 text-olive shrink-0" />;
     }
     if (msg.includes('rejected')) {
-      return <XCircle className="h-4 w-4 text-red-500 shrink-0" />;
+      return <XCircle className="h-4 w-4 text-rust shrink-0" />;
     }
     if (msg.includes('forwarded')) {
-      return <ArrowRightLeft className="h-4 w-4 text-blue-500 shrink-0" />;
+      return <ArrowRightLeft className="h-4 w-4 text-terra shrink-0" />;
     }
-    return <FileSpreadsheet className="h-4 w-4 text-amber-500 shrink-0" />;
+    return <FileSpreadsheet className="h-4 w-4 text-gold shrink-0" />;
   };
 
   return (
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={handleToggle}
-        className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 focus:outline-none dark:bg-navy-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100 transition-colors shadow-sm"
+        className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-parchment bg-cream-dark text-brown-700 hover:bg-parchment hover:text-terra transition-all duration-300 dark:border-dark-border dark:bg-dark-card dark:text-brown-300 dark:hover:bg-dark-surface dark:hover:text-terra-light"
         aria-label="View notifications"
       >
         <Bell className="h-5 w-5" />
         {unreadNotifCount > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white ring-2 ring-white dark:ring-navy-950 animate-bounce">
+          <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-terra text-[10px] font-bold text-white ring-2 ring-cream dark:ring-dark-bg animate-pulse">
             {unreadNotifCount}
           </span>
         )}
       </button>
 
-      {isOpen && (
-        <div className="absolute right-0 mt-2.5 w-80 md:w-96 origin-top-right rounded-xl bg-white p-2 shadow-2xl ring-1 ring-black/5 focus:outline-none dark:bg-navy-900 dark:ring-slate-800 z-50 transition-all duration-200">
-          <div className="flex items-center justify-between border-b border-slate-100 px-3 py-2.5 dark:border-slate-800">
-            <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">Notifications</h3>
-            {unreadNotifCount > 0 && (
-              <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-800 dark:bg-amber-950/20 dark:text-amber-400">
-                {unreadNotifCount} New
-              </span>
-            )}
-          </div>
-
-          <div className="max-h-72 overflow-y-auto divide-y divide-slate-50 dark:divide-slate-800/40">
-            {notifications.length === 0 ? (
-              <div className="flex flex-col items-center justify-center px-4 py-8 text-center">
-                <Bell className="h-8 w-8 text-slate-300 dark:text-slate-700" />
-                <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">You are all caught up! No notifications yet.</p>
-              </div>
-            ) : (
-              notifications.map((notif) => (
+      {isOpen && typeof document !== 'undefined' && createPortal(
+        <div className="fixed inset-0 z-[100] flex flex-col bg-cream/95 backdrop-blur-sm dark:bg-dark-bg/95 animate-fade-in p-4 sm:p-6 md:p-12 lg:p-24">
+          <div 
+            className="flex flex-col w-full h-full max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-2xl shadow-2xl overflow-hidden border border-parchment dark:border-dark-border relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-parchment px-6 py-5 dark:border-dark-border bg-cream-dark/50 dark:bg-dark-surface/50">
+              <h2 className="text-xl sm:text-2xl font-bold text-brown-800 dark:text-cream-dark flex items-center gap-3">
+                <Bell className="h-6 w-6 text-terra" />
+                Notifications
+              </h2>
+              <div className="flex items-center gap-4">
+                {unreadNotifCount > 0 && (
+                  <span className="rounded-full bg-terra/10 px-3 py-1 text-sm font-bold text-terra dark:text-terra-light">
+                    {unreadNotifCount} New
+                  </span>
+                )}
                 <button
-                  key={notif.id}
-                  onClick={() => handleNotificationClick(notif)}
-                  className={`flex w-full text-left px-3 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors ${!notif.isRead ? 'bg-slate-50/50 dark:bg-slate-800/20 font-medium' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(false);
+                  }}
+                  className="rounded-full p-2 text-brown-500 hover:bg-parchment hover:text-brown-800 dark:text-brown-400 dark:hover:bg-dark-surface dark:hover:text-cream-dark transition-colors"
+                  aria-label="Close notifications"
                 >
-                  <div className="flex gap-3">
-                    <div className="mt-0.5 shrink-0">{getNotifIcon(notif.message)}</div>
-                    <div className="flex flex-col">
-                      <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                        {notif.message}
-                      </p>
-                      <span className="mt-1 text-[10px] text-slate-400 dark:text-slate-500">
-                        {formatTime(notif.createdAt)}
-                      </span>
-                    </div>
-                  </div>
+                  <XCircle className="h-6 w-6" />
                 </button>
-              ))
-            )}
+              </div>
+            </div>
+
+            <div className="flex-1 overflow-y-auto divide-y divide-parchment/50 dark:divide-dark-border/50 bg-white dark:bg-dark-card">
+              {notifications.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full px-4 py-20 text-center">
+                  <div className="h-20 w-20 rounded-full bg-cream-dark dark:bg-dark-surface flex items-center justify-center mb-6 shadow-inner">
+                    <Bell className="h-10 w-10 text-brown-300 dark:text-brown-500" />
+                  </div>
+                  <h3 className="text-lg font-bold text-brown-700 dark:text-brown-300 mb-2">You are all caught up!</h3>
+                  <p className="text-sm font-medium text-brown-400 dark:text-brown-400 max-w-xs">There are no new notifications for you right now.</p>
+                </div>
+              ) : (
+                notifications.map((notif) => (
+                  <button
+                    key={notif.id}
+                    onClick={() => handleNotificationClick(notif)}
+                    className={`flex w-full text-left px-6 py-5 hover:bg-cream dark:hover:bg-dark-surface/80 transition-colors group ${!notif.isRead ? 'bg-cream/40 dark:bg-dark-surface/40' : ''}`}
+                  >
+                    <div className="flex gap-4 sm:gap-6 w-full items-start">
+                      <div className="mt-1 shrink-0 p-2 rounded-full bg-white dark:bg-dark-bg shadow-sm border border-parchment/50 dark:border-dark-border/50 group-hover:scale-110 transition-transform">
+                        {getNotifIcon(notif.message)}
+                      </div>
+                      <div className="flex flex-col flex-1">
+                        <p className={`text-sm sm:text-base leading-relaxed ${!notif.isRead ? 'font-semibold text-brown-800 dark:text-cream-dark' : 'text-brown-600 dark:text-brown-400'}`}>
+                          {notif.message}
+                        </p>
+                        <span className="mt-2 text-xs font-medium text-brown-400 dark:text-brown-500 flex items-center gap-1.5">
+                          {formatTime(notif.createdAt)}
+                        </span>
+                      </div>
+                      {!notif.isRead && (
+                        <div className="shrink-0 h-2.5 w-2.5 rounded-full bg-terra mt-2 shadow-sm shadow-terra/30"></div>
+                      )}
+                    </div>
+                  </button>
+                ))
+              )}
+            </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

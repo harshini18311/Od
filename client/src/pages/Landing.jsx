@@ -1,9 +1,21 @@
 // client/src/pages/Landing.jsx
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { GraduationCap, Briefcase, KeyRound, Mail, Eye, EyeOff, Sparkles } from 'lucide-react';
+import { 
+  GraduationCap, 
+  Briefcase, 
+  KeyRound, 
+  Mail, 
+  Eye, 
+  EyeOff, 
+  Sparkles,
+  ListChecks,
+  Network,
+  QrCode,
+  ShieldAlert
+} from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
 
 export default function Landing() {
@@ -60,162 +72,181 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-navy-950 transition-colors duration-300">
-      {/* Top Navbar */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="bg-amber-500 text-white p-2 rounded-xl shadow-md shadow-amber-500/10 flex items-center justify-center">
-            <GraduationCap className="h-6 w-6" />
+    <div className="min-h-screen w-full flex flex-row overflow-hidden bg-cream dark:bg-dark-bg font-sans">
+      {/* LEFT HALF (Desktop Only) */}
+      <div className="hidden lg:flex lg:w-[45%] bg-brown-900 bg-gradient-to-br from-brown-900 to-brown-800 flex-col justify-between p-12 relative h-screen">
+        {/* Subtle background element */}
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brown-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-brown-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+        <div className="relative z-10">
+          <GraduationCap className="h-16 w-16 text-terra mb-6 opacity-90" />
+          <h1 className="font-serif text-5xl font-bold text-cream mb-2 tracking-tight">KCET CSE</h1>
+          <h2 className="text-xl text-terra-light font-medium tracking-wide">On-Duty Approval System</h2>
+        </div>
+
+        <div className="relative z-10 space-y-8 my-auto flex-1 flex flex-col justify-center max-w-md">
+          <div className="flex items-center gap-5 group">
+            <div className="bg-brown-800/80 p-3.5 rounded-2xl group-hover:bg-brown-700 transition-colors shadow-inner border border-brown-700/50">
+              <ListChecks className="text-gold h-6 w-6" />
+            </div>
+            <span className="text-cream text-lg font-medium tracking-wide">Track your OD requests</span>
           </div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-base tracking-tight text-slate-800 dark:text-white">KCET</span>
-            <span className="text-[10px] tracking-wide text-slate-400 dark:text-slate-500 font-bold uppercase">OD Approval Portal</span>
+          <div className="flex items-center gap-5 group">
+            <div className="bg-brown-800/80 p-3.5 rounded-2xl group-hover:bg-brown-700 transition-colors shadow-inner border border-brown-700/50">
+              <Network className="text-gold h-6 w-6" />
+            </div>
+            <span className="text-cream text-lg font-medium tracking-wide">Multi-level approval workflow</span>
+          </div>
+          <div className="flex items-center gap-5 group">
+            <div className="bg-brown-800/80 p-3.5 rounded-2xl group-hover:bg-brown-700 transition-colors shadow-inner border border-brown-700/50">
+              <QrCode className="text-gold h-6 w-6" />
+            </div>
+            <span className="text-cream text-lg font-medium tracking-wide">QR verified outpass</span>
           </div>
         </div>
-        <ThemeToggle />
-      </header>
 
-      {/* Hero and Login Cards Layout */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8 flex flex-col lg:flex-row items-center justify-center gap-12">
-        {/* Left Side: Descriptive Column */}
-        <div className="flex-1 text-center lg:text-left space-y-6 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/50 dark:bg-amber-950/20 dark:text-amber-400 dark:border-amber-900/30 text-xs font-semibold">
-            <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-            Digitized Workflow Platform
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-800 dark:text-white leading-tight tracking-tight">
-            Online <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500">On-Duty</span> Leave Approval System.
-          </h1>
-          <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed">
-            Authorized portal for Kamaraj College of Engineering and Technology. Students can submit official leave requests for hackathons, sports, and technical symposia, which seamlessly route through a multi-stage approval workflow.
+        <div className="relative z-10">
+          <p className="text-brown-400/80 text-sm font-medium">
+            © {new Date().getFullYear()} KCET — Computer Science and Engineering Department.
           </p>
-          <div className="hidden sm:flex items-center gap-8 text-center lg:text-left">
-            <div>
-              <p className="text-2xl font-black text-slate-800 dark:text-white">7 Roles</p>
-              <p className="text-xs text-slate-400 font-medium">RBAC Security</p>
-            </div>
-            <div className="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
-            <div>
-              <p className="text-2xl font-black text-slate-800 dark:text-white">✓ Certified</p>
-              <p className="text-xs text-slate-400 font-medium">Secure QR Verification</p>
-            </div>
-            <div className="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
-            <div>
-              <p className="text-2xl font-black text-slate-800 dark:text-white">100%</p>
-              <p className="text-xs text-slate-400 font-medium">Real-time Timeline</p>
-            </div>
-          </div>
+        </div>
+      </div>
+
+      {/* RIGHT HALF (Scrollable content) */}
+      <div className="flex-1 w-full lg:w-[55%] flex flex-col relative h-screen overflow-y-auto">
+        {/* Theme Toggle */}
+        <div className="absolute top-6 right-6 z-20">
+          <ThemeToggle />
         </div>
 
-        {/* Right Side: Glassmorphism Login Container */}
-        <div className="w-full max-w-md rounded-3xl bg-white p-8 border border-slate-200/50 shadow-2xl dark:bg-navy-900 dark:border-slate-800/60 transition-all duration-300">
-          {/* Portal Toggle Cards */}
-          <div className="grid grid-cols-2 gap-2.5 p-1 bg-slate-100 rounded-2xl dark:bg-navy-950 mb-8">
-            <button
-              onClick={() => handlePortalSwitch(true)}
-              className={`flex items-center justify-center gap-2 py-2.5 text-xs font-bold rounded-xl transition-all duration-200 ${isStudentPortal ? 'bg-white text-amber-500 shadow dark:bg-navy-900' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'}`}
-            >
-              <GraduationCap className="h-4 w-4" />
-              Student Portal
-            </button>
-            <button
-              onClick={() => handlePortalSwitch(false)}
-              className={`flex items-center justify-center gap-2 py-2.5 text-xs font-bold rounded-xl transition-all duration-200 ${!isStudentPortal ? 'bg-white text-amber-500 shadow dark:bg-navy-900' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'}`}
-            >
-              <Briefcase className="h-4 w-4" />
-              Staff / Admin
-            </button>
+        <div className="flex-1 flex flex-col justify-center items-center p-6 sm:p-12 w-full max-w-2xl mx-auto my-auto min-h-max">
+          
+          {/* Mobile Header (Hidden on Desktop) */}
+          <div className="lg:hidden flex flex-col items-center text-center mb-10 w-full animate-in slide-in-from-top-4 duration-700">
+            <div className="bg-brown-100 dark:bg-dark-surface p-4 rounded-full mb-5 shadow-sm border border-brown-200 dark:border-dark-border">
+              <GraduationCap className="h-10 w-10 text-terra" />
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl font-bold text-brown-900 dark:text-cream mb-2">KCET CSE</h1>
+            <h2 className="text-sm sm:text-base text-terra dark:text-terra-light font-medium tracking-wide">On-Duty Approval System</h2>
           </div>
 
-          <div className="mb-6">
-            <h2 className="text-xl font-extrabold text-slate-800 dark:text-white">
-              {isStudentPortal ? 'Student Log In' : 'Staff / Admin Log In'}
-            </h2>
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
-              Enter your login ID and password.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email Field */}
-            <div className="space-y-1.5">
-              <label htmlFor="email" className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                Login ID
-              </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <Mail className="h-4 w-4 text-slate-400" />
-                </div>
-                <input
-                  id="email"
-                  type="text"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="username"
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  spellCheck={false}
-                  placeholder={isStudentPortal ? '24ucs073' : 'staffname@cse'}
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/50 py-3 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-amber-500 dark:border-slate-800 dark:bg-navy-950 dark:text-white dark:placeholder-slate-600 dark:focus:bg-navy-950 transition-all duration-200"
-                />
-              </div>
+          <div className="w-full max-w-md animate-in zoom-in-95 duration-500">
+            {/* Portal Switcher Tabs */}
+            <div className="flex p-1.5 bg-parchment dark:bg-dark-surface rounded-xl mb-10 shadow-sm border border-brown-200 dark:border-dark-border">
+              <button
+                type="button"
+                onClick={() => handlePortalSwitch(true)}
+                className={`flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
+                  isStudentPortal 
+                    ? 'bg-terra text-white shadow-md' 
+                    : 'text-brown-600 dark:text-brown-400 hover:text-brown-900 dark:hover:text-cream hover:bg-brown-100 dark:hover:bg-dark-card'
+                }`}
+              >
+                <GraduationCap className="h-5 w-5" />
+                Student
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePortalSwitch(false)}
+                className={`flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
+                  !isStudentPortal 
+                    ? 'bg-terra text-white shadow-md' 
+                    : 'text-brown-600 dark:text-brown-400 hover:text-brown-900 dark:hover:text-cream hover:bg-brown-100 dark:hover:bg-dark-card'
+                }`}
+              >
+                <Briefcase className="h-5 w-5" />
+                Staff/Admin
+              </button>
             </div>
 
-            {/* Password Field */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                  Password
+            <div className="mb-8 space-y-2 text-center lg:text-left">
+              <h2 className="font-serif text-3xl font-bold text-brown-900 dark:text-cream">Welcome Back</h2>
+              <p className="text-brown-600 dark:text-brown-400 font-medium">
+                Sign in to your {isStudentPortal ? 'student' : 'staff'} account.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-xs font-bold text-brown-800 dark:text-brown-200 uppercase tracking-wider ml-1">
+                  LOGIN ID
                 </label>
-              </div>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <KeyRound className="h-4 w-4 text-slate-400" />
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <Mail className="h-5 w-5 text-brown-400 group-focus-within:text-terra transition-colors" />
+                  </div>
+                  <input
+                    id="email"
+                    type="text"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={isStudentPortal ? 'Roll number (e.g. 24ucs001)' : 'Email ID (e.g. staffname@cse)'}
+                    className="input-warm block w-full !pl-12 !py-3.5 text-base"
+                  />
                 </div>
-                <input
-                  id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/50 py-3 pl-10 pr-10 text-sm text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-amber-500 dark:border-slate-800 dark:bg-navy-950 dark:text-white dark:placeholder-slate-600 dark:focus:bg-navy-950 transition-all duration-200"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                </button>
               </div>
-            </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg shadow-amber-500/20 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2"
-            >
-              {loading ? (
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-              ) : (
-                'Sign In'
-              )}
-            </button>
-          </form>
-        </div>
-      </main>
+              <div className="space-y-2">
+                <label htmlFor="password" className="block text-xs font-bold text-brown-800 dark:text-brown-200 uppercase tracking-wider ml-1">
+                  PASSWORD
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <KeyRound className="h-5 w-5 text-brown-400 group-focus-within:text-terra transition-colors" />
+                  </div>
+                  <input
+                    id="password"
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder={isStudentPortal ? 'Enter your password' : 'Enter password'}
+                    className="input-warm block w-full !pl-12 !pr-12 !py-3.5 text-base"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center pr-4 text-brown-400 hover:text-terra transition-colors"
+                  >
+                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  </button>
+                </div>
+                {!isStudentPortal && (
+                  <div className="flex items-center justify-between gap-3 px-1 pt-2 text-xs text-brown-500 dark:text-brown-400">
+                    <span className="inline-flex items-center gap-1.5">
+                      <ShieldAlert className="h-3.5 w-3.5" />
+                      Staff passwords are seeded from the staff ID sheet.
+                    </span>
+                    <Link to="/staff/reset-password" className="font-semibold text-terra hover:underline whitespace-nowrap">
+                      Reset via OTP
+                    </Link>
+                  </div>
+                )}
+              </div>
 
-      {/* Footer */}
-      <footer className="w-full max-w-7xl mx-auto px-6 py-6 border-t border-slate-100 dark:border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500">
-        <p>© 2026 Kamaraj College of Engineering and Technology. All rights reserved.</p>
-        <div className="flex gap-4">
-          <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Privacy Policy</a>
-          <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">IT Support Desk</a>
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-terra w-full mt-2 py-4 flex items-center justify-center gap-2 group text-base font-bold"
+              >
+                {loading ? (
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                ) : (
+                  <>
+                    Sign In
+                    <div className="opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                      →
+                    </div>
+                  </>
+                )}
+              </button>
+            </form>
+
+          </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }

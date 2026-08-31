@@ -1,12 +1,11 @@
 // server/routes/admin.js
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma.js';
 import bcrypt from 'bcryptjs';
 import { requireAuth } from '../middleware/auth.js';
 import { roleGuard } from '../middleware/roleGuard.js';
 
 const router = express.Router();
-const prisma = new PrismaClient();
 
 function csvCell(value) {
   return `"${String(value ?? '').replace(/"/g, '""')}"`;
@@ -138,6 +137,13 @@ router.put('/users/:id', ...adminGuard, async (req, res) => {
       deptId: deptId !== undefined ? deptId : existingUser.deptId
     };
 
+    if (existingUser.role === 'admin' && updateData.role !== 'admin') {
+      const adminCount = await prisma.user.count({ where: { role: 'admin' } });
+      if (adminCount <= 1) {
+        return res.status(400).json({ error: 'Cannot remove the admin role from the last remaining admin account.' });
+      }
+    }
+
     if (password && password.trim() !== '') {
       updateData.passwordHash = await bcrypt.hash(password, 10);
     }
@@ -202,6 +208,21 @@ router.put('/users/:id', ...adminGuard, async (req, res) => {
  */
 router.delete('/users/:id', ...adminGuard, async (req, res) => {
   try {
+    const userToDelete = await prisma.user.findUnique({
+      where: { id: req.params.id }
+    });
+
+    if (!userToDelete) {
+      return res.status(404).json({ error: 'User not found.' });
+    }
+
+    if (userToDelete.role === 'admin') {
+      const adminCount = await prisma.user.count({ where: { role: 'admin' } });
+      if (adminCount <= 1) {
+        return res.status(400).json({ error: 'Cannot delete the last remaining admin account.' });
+      }
+    }
+
     await prisma.user.delete({
       where: { id: req.params.id }
     });
@@ -320,7 +341,7 @@ router.get('/report', ...adminGuard, async (req, res) => {
     // General counters
     const totalStudents = await prisma.student.count();
     const totalStaff = await prisma.user.count({
-      where: { role: { in: ['mentor', 'chairperson', 'hod', 'principal'] } }
+      where: { role: { in: ['mentor', 'chairperson', 'hod'] } }
     });
 
     return res.json({

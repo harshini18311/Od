@@ -192,42 +192,223 @@
 - 24ucs190 / 24ucs190
 - 24ucs191 / 24ucs191
 - 24ucs192 / 24ucs192
+- 25ucs001 / 25ucs001
+- 25ucs002 / 25ucs002
+- 25ucs003 / 25ucs003
+- 25ucs004 / 25ucs004
+- 25ucs005 / 25ucs005
+- 25ucs006 / 25ucs006
+- 25ucs007 / 25ucs007
+- 25ucs008 / 25ucs008
+- 25ucs009 / 25ucs009
+- 25ucs010 / 25ucs010
+- 25ucs011 / 25ucs011
+- 25ucs012 / 25ucs012
+- 25ucs013 / 25ucs013
+- 25ucs014 / 25ucs014
+- 25ucs015 / 25ucs015
+- 25ucs016 / 25ucs016
+- 25ucs017 / 25ucs017
+- 25ucs018 / 25ucs018
+- 25ucs019 / 25ucs019
+- 25ucs020 / 25ucs020
+- 25ucs021 / 25ucs021
+- 25ucs022 / 25ucs022
+- 25ucs023 / 25ucs023
+- 25ucs024 / 25ucs024
+- 25ucs025 / 25ucs025
+- 25ucs026 / 25ucs026
+- 25ucs027 / 25ucs027
+- 25ucs028 / 25ucs028
+- 25ucs029 / 25ucs029
+- 25ucs030 / 25ucs030
+- 25ucs031 / 25ucs031
+- 25ucs032 / 25ucs032
+- 25ucs033 / 25ucs033
+- 25ucs034 / 25ucs034
+- 25ucs035 / 25ucs035
+- 25ucs036 / 25ucs036
+- 25ucs037 / 25ucs037
+- 25ucs038 / 25ucs038
+- 25ucs039 / 25ucs039
+- 25ucs040 / 25ucs040
+- 25ucs041 / 25ucs041
+- 25ucs042 / 25ucs042
+- 25ucs043 / 25ucs043
+- 25ucs044 / 25ucs044
+- 25ucs045 / 25ucs045
+- 25ucs046 / 25ucs046
+- 25ucs047 / 25ucs047
+- 25ucs048 / 25ucs048
+- 25ucs049 / 25ucs049
+- 25ucs050 / 25ucs050
+- 25ucs051 / 25ucs051
+- 25ucs052 / 25ucs052
+- 25ucs053 / 25ucs053
+- 25ucs054 / 25ucs054
+- 25ucs055 / 25ucs055
+- 25ucs056 / 25ucs056
+- 25ucs057 / 25ucs057
+- 25ucs058 / 25ucs058
+- 25ucs059 / 25ucs059
+- 25ucs060 / 25ucs060
+- 25ucs061 / 25ucs061
+- 25ucs062 / 25ucs062
+- 25ucs063 / 25ucs063
+- 25ucs064 / 25ucs064
+- 25ucs065 / 25ucs065
+- 25ucs066 / 25ucs066
+- 25ucs067 / 25ucs067
+- 25ucs068 / 25ucs068
+- 25ucs069 / 25ucs069
+- 25ucs070 / 25ucs070
+- 25ucs071 / 25ucs071
+- 25ucs072 / 25ucs072
+- 25ucs073 / 25ucs073
+- 25ucs074 / 25ucs074
+- 25ucs075 / 25ucs075
+- 25ucs076 / 25ucs076
+- 25ucs077 / 25ucs077
+- 25ucs078 / 25ucs078
+- 25ucs079 / 25ucs079
+- 25ucs080 / 25ucs080
+- 25ucs081 / 25ucs081
+- 25ucs082 / 25ucs082
+- 25ucs083 / 25ucs083
+- 25ucs084 / 25ucs084
+- 25ucs085 / 25ucs085
+- 25ucs086 / 25ucs086
+- 25ucs087 / 25ucs087
+- 25ucs088 / 25ucs088
+- 25ucs089 / 25ucs089
+- 25ucs090 / 25ucs090
+- 25ucs091 / 25ucs091
+- 25ucs092 / 25ucs092
+- 25ucs093 / 25ucs093
+- 25ucs094 / 25ucs094
+- 25ucs095 / 25ucs095
+- 25ucs096 / 25ucs096
+- 25ucs097 / 25ucs097
+- 25ucs098 / 25ucs098
+- 25ucs099 / 25ucs099
+- 25ucs100 / 25ucs100
+- 25ucs101 / 25ucs101
+- 25ucs102 / 25ucs102
+- 25ucs103 / 25ucs103
+- 25ucs104 / 25ucs104
+- 25ucs105 / 25ucs105
+- 25ucs107 / 25ucs107
+- 25ucs108 / 25ucs108
+- 25ucs109 / 25ucs109
+- 25ucs110 / 25ucs110
+- 25ucs111 / 25ucs111
+- 25ucs112 / 25ucs112
+- 25ucs113 / 25ucs113
+- 25ucs114 / 25ucs114
+- 25ucs115 / 25ucs115
+- 25ucs116 / 25ucs116
+- 25ucs117 / 25ucs117
+- 25ucs118 / 25ucs118
+- 25ucs119 / 25ucs119
+- 25ucs120 / 25ucs120
+- 25ucs121 / 25ucs121
+- 25ucs122 / 25ucs122
+- 25ucs123 / 25ucs123
+- 25ucs124 / 25ucs124
+- 25ucs125 / 25ucs125
+- 25ucs126 / 25ucs126
+- 25ucs127 / 25ucs127
+- 25ucs128 / 25ucs128
+- 25ucs129 / 25ucs129
+- 25ucs130 / 25ucs130
+- 25ucs131 / 25ucs131
+- 25ucs132 / 25ucs132
+- 25ucs133 / 25ucs133
+- 25ucs134 / 25ucs134
+- 25ucs135 / 25ucs135
+- 25ucs136 / 25ucs136
+- 25ucs137 / 25ucs137
+- 25ucs138 / 25ucs138
+- 25ucs139 / 25ucs139
+- 25ucs140 / 25ucs140
+- 25ucs141 / 25ucs141
+- 25ucs142 / 25ucs142
+- 25ucs143 / 25ucs143
+- 25ucs144 / 25ucs144
+- 25ucs145 / 25ucs145
+- 25ucs146 / 25ucs146
+- 25ucs147 / 25ucs147
+- 25ucs148 / 25ucs148
+- 25ucs149 / 25ucs149
+- 25ucs150 / 25ucs150
+- 25ucs151 / 25ucs151
+- 25ucs152 / 25ucs152
+- 25ucs153 / 25ucs153
+- 25ucs154 / 25ucs154
+- 25ucs155 / 25ucs155
+- 25ucs156 / 25ucs156
+- 25ucs157 / 25ucs157
+- 25ucs158 / 25ucs158
+- 25ucs159 / 25ucs159
+- 25ucs160 / 25ucs160
+- 25ucs161 / 25ucs161
+- 25ucs162 / 25ucs162
+- 25ucs163 / 25ucs163
+- 25ucs165 / 25ucs165
+- 25ucs166 / 25ucs166
+- 25ucs167 / 25ucs167
+- 25ucs168 / 25ucs168
+- 25ucs169 / 25ucs169
+- 25ucs170 / 25ucs170
+- 25ucs171 / 25ucs171
+- 25ucs172 / 25ucs172
+- 25ucs173 / 25ucs173
+- 25ucs175 / 25ucs175
+- 25ucs176 / 25ucs176
+- 25ucs177 / 25ucs177
+- 25ucs178 / 25ucs178
+- 25ucs179 / 25ucs179
+- 25ucs180 / 25ucs180
+- 25ucs181 / 25ucs181
+- 25ucs182 / 25ucs182
+- 25ucs183 / 25ucs183
+- 25ucs184 / 25ucs184
+- 25ucs185 / 25ucs185
+- 25ucs186 / 25ucs186
 
 ## Staff / HOD / Admin
-- admin: admin@cse / Test123
-- chairperson: anandh@cse / Test123
-- chairperson: athilakshmi@cse / Test123
-- chairperson: priyadharshini@cse / Test123
-- hod: hod@cse / Test123
-- mentor: anandhlavanya@cse / Test123
-- mentor: archanadevi@cse / Test123
-- mentor: asir@cse / Test123
-- mentor: athilakshmi.mentor@cse / Test123
-- mentor: divya@cse / Test123
-- mentor: ignatiusselvarani@cse / Test123
-- mentor: johnlivingston@cse / Test123
-- mentor: kumaravel@cse / Test123
-- mentor: leelarani@cse / Test123
-- mentor: mariasobana@cse / Test123
-- mentor: meenakshi@cse / Test123
-- mentor: mohana@cse / Test123
-- mentor: muthuchelvi@cse / Test123
-- mentor: muthukrishnavinayagam@cse / Test123
-- mentor: pradhiba@cse / Test123
-- mentor: praveenkumar@cse / Test123
-- mentor: priyadharshini.mentor@cse / Test123
-- mentor: pushpalatha@cse / Test123
-- mentor: raj@cse / Test123
-- mentor: rajeshkannan@cse / Test123
-- mentor: ramprasath@cse / Test123
-- mentor: rohinipriya@cse / Test123
-- mentor: saraswathi@cse / Test123
-- mentor: shalompriscilla@cse / Test123
-- mentor: sundararajukavitha@cse / Test123
-- mentor: umamaheswari@cse / Test123
-- mentor: vijayalakshmi@cse / Test123
-- principal: principal@kcet / Test123
+- admin: admin@cse / <staffId>
+- chairperson: anandh@cse / <staffId>
+- chairperson: athilakshmi@cse / <staffId>
+- chairperson: priyadharshini@cse / <staffId>
+- hod: meenakshi@cse / <staffId>
+- mentor: anandhlavanya@cse / <staffId>
+- mentor: archanadevi@cse / <staffId>
+- mentor: asir@cse / <staffId>
+- mentor: divya@cse / <staffId>
+- mentor: ignatiusselvarani@cse / <staffId>
+- mentor: johnlivingston@cse / <staffId>
+- mentor: kavitha@cse / <staffId>
+- mentor: kumaravel@cse / <staffId>
+- mentor: lavanya@cse / <staffId>
+- mentor: leelarani@cse / <staffId>
+- mentor: mariasobana@cse / <staffId>
+- mentor: mohana@cse / <staffId>
+- mentor: muthuchelvi@cse / <staffId>
+- mentor: muthukrishnavinayagam@cse / <staffId>
+- mentor: pradhiba@cse / <staffId>
+- mentor: praveenkumar@cse / <staffId>
+- mentor: pushpalatha@cse / <staffId>
+- mentor: raj@cse / <staffId>
+- mentor: rajeshkannan@cse / <staffId>
+- mentor: ramprasath@cse / <staffId>
+- mentor: rohinipriya@cse / <staffId>
+- mentor: saraswathi@cse / <staffId>
+- mentor: shalompriscilla@cse / <staffId>
+- mentor: sundararajukavitha@cse / <staffId>
+- mentor: umamaheswari@cse / <staffId>
+- mentor: vijayalakshmi@cse / <staffId>
 
 Notes:
 - Students use roll number in lowercase for both username and password.
-- Staff, HOD, and admin use Test123 as the password.
+- Staff, HOD, chairpersons, and mentors use their staff ID as the password.

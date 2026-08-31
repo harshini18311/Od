@@ -26,8 +26,8 @@
      ▼           ▼
 ╔══════════╗  ╔══════════════════════════════════╗
 ║ STUDENT  ║  ║         STAFF DASHBOARD          ║
-║DASHBOARD ║  ║  Mentor | Chair | HOD | Principal║
-╚══════════╝  ║  Warden | Admin                  ║
+║DASHBOARD ║  ║  Mentor | Chair | HOD                ║
+╚══════════╝  ║  Admin                           ║
               ╚══════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -120,9 +120,7 @@ Event              → Notify
 Submitted          → Mentor
 Mentor Approved    → Chairperson + Student (update)
 Chair Approved     → HOD + Student (update)
-HOD Approved       → Day Scholar: Student + Admin + Chair
-                     Hosteller: Principal + Student (update)
-Principal Approved → Student + Warden + Chair + Admin
+HOD Approved       → Student + Admin + Chair
 Any Rejection      → Student (with reason) + Previous Approver
 ```
 
@@ -133,7 +131,7 @@ Any Rejection      → Student (with reason) + Previous Approver
 ```sql
 -- USERS & ROLES
 users           (id, name, email, password_hash, role, dept_id, created_at)
-roles           (id, name)  -- student, mentor, chairperson, hod, principal, warden, admin
+roles           (id, name)  -- student, mentor, chairperson, hod, admin
 departments     (id, name, code, hod_id)
 
 -- STUDENT SPECIFIC
@@ -222,9 +220,7 @@ ROLE SYSTEM (RBAC)
   2. mentor         → approve/reject Step 1
   3. chairperson    → approve/reject Step 2
   4. hod            → approve/reject Step 3
-  5. principal      → approve/reject Step 4 (hostellers only)
-  6. warden         → receive notification for hosteller approvals
-  7. admin          → full system access, reports, user management
+  5. admin          → full system access, reports, user management
 
 Each JWT token must encode: userId, role, deptId
 
@@ -254,21 +250,14 @@ Implement this exact multi-stage pipeline:
     → mentor rejects  → STATUS: rejected (notify student)
 
   STAGE 2: chairperson_pending
-    → chair approves  → STAGE 3: hod_pending
+    → chair approves  → STAGE 3: hod_pending (or STATUS: approved if Internal/Staff applied)
     → chair rejects   → STATUS: rejected
 
   STAGE 3: hod_pending
-    → hod approves + student is DAY_SCHOLAR  → STATUS: approved
-                                               generate PDF + QR
-                                               notify student, chair, admin
-    → hod approves + student is HOSTELLER    → STAGE 4: principal_pending
+    → hod approves → STATUS: approved
+                     generate PDF + QR
+                     notify student, chair, admin
     → hod rejects → STATUS: rejected
-
-  STAGE 4: principal_pending (hostellers only)
-    → principal approves → STATUS: approved
-                           generate PDF + QR
-                           notify student, warden, chair, admin
-    → principal rejects  → STATUS: rejected (notify student + warden)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 FRONTEND PAGES TO BUILD
@@ -458,11 +447,10 @@ od-system/
 DELIVERABLES CHECKLIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[ ] Working login for all 7 roles
+[ ] Working login for all 5 roles
 [ ] Student can submit OD with file upload
 [ ] Mentor → Chair → HOD approval chain works
-[ ] Day Scholar gets approved after HOD
-[ ] Hosteller routes to Principal after HOD
+[ ] OD requests are fully approved after HOD (or Chairperson if Internal/Staff applied)
 [ ] PDF generated on final approval
 [ ] QR code verifiable via public URL
 [ ] Real-time notification count in navbar

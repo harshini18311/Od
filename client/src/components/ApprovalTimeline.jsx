@@ -13,14 +13,14 @@ export default function ApprovalTimeline({ odRequest }) {
   const isHosteller = studentType === 'HOSTELLER';
 
   // Define the stages in order
-  const pipeline = [
-    { key: 'mentor', label: 'Step 1: Mentor Review', pendingStage: 'mentor_pending' },
-    { key: 'chairperson', label: 'Step 2: Chairperson Verification', pendingStage: 'chairperson_pending' },
-    { key: 'hod', label: 'Step 3: HOD Approval', pendingStage: 'hod_pending' },
-  ];
+  const pipeline = [];
 
-  if (isHosteller) {
-    pipeline.push({ key: 'principal', label: 'Step 4: Principal Review (Hosteller Only)', pendingStage: 'principal_pending' });
+  if (odRequest.odType === 'INTERNAL' || odRequest.isStaffApplied) {
+    pipeline.push({ key: 'chairperson', label: 'Chairperson Approval', pendingStage: 'chairperson_pending' });
+  } else {
+    pipeline.push({ key: 'mentor', label: 'Step 1: Mentor Review', pendingStage: 'mentor_pending' });
+    pipeline.push({ key: 'chairperson', label: 'Step 2: Chairperson Verification', pendingStage: 'chairperson_pending' });
+    pipeline.push({ key: 'hod', label: 'Step 3: HOD Approval', pendingStage: 'hod_pending' });
   }
 
   // Helper to determine status of a pipeline stage
@@ -55,37 +55,37 @@ export default function ApprovalTimeline({ odRequest }) {
       case 'APPROVED':
         return {
           icon: <Check className="h-4 w-4 text-white" />,
-          color: 'bg-emerald-500 border-emerald-500 ring-4 ring-emerald-500/20',
-          text: 'text-slate-900 dark:text-slate-100 font-semibold',
-          subtext: 'text-emerald-600 dark:text-emerald-400 font-medium text-xs'
+          color: 'bg-olive border-olive',
+          text: 'text-brown-900 dark:text-cream font-bold',
+          subtext: 'text-olive dark:text-olive-light font-bold text-[10px] tracking-widest'
         };
       case 'REJECTED':
         return {
           icon: <X className="h-4 w-4 text-white" />,
-          color: 'bg-red-500 border-red-500 ring-4 ring-red-500/20',
-          text: 'text-slate-900 dark:text-slate-100 font-semibold',
-          subtext: 'text-red-600 dark:text-red-400 font-medium text-xs'
+          color: 'bg-rust border-rust',
+          text: 'text-brown-900 dark:text-cream font-bold',
+          subtext: 'text-rust dark:text-rust-light font-bold text-[10px] tracking-widest'
         };
       case 'ACTIVE':
         return {
-          icon: <Clock className="h-4 w-4 text-amber-500 animate-spin" />,
-          color: 'bg-amber-50 border-amber-500 border-2 ring-4 ring-amber-500/10 dark:bg-navy-950',
-          text: 'text-slate-900 dark:text-slate-100 font-semibold',
-          subtext: 'text-amber-500 animate-pulse font-medium text-xs'
+          icon: <Clock className="h-4 w-4 text-white" />,
+          color: 'bg-terra border-terra animate-pulse',
+          text: 'text-brown-900 dark:text-cream font-bold',
+          subtext: 'text-terra dark:text-terra-light font-bold text-[10px] tracking-widest'
         };
       case 'SKIPPED':
         return {
-          icon: <HelpCircle className="h-4 w-4 text-slate-400" />,
-          color: 'bg-slate-100 border-slate-300 dark:bg-navy-900 dark:border-slate-800',
-          text: 'text-slate-400 dark:text-slate-600 font-normal',
-          subtext: 'text-slate-400 dark:text-slate-600 text-xs'
+          icon: <HelpCircle className="h-4 w-4 text-brown-300" />,
+          color: 'bg-parchment border-parchment dark:bg-dark-surface dark:border-dark-border',
+          text: 'text-brown-300 dark:text-brown-400 font-normal',
+          subtext: 'text-brown-300 dark:text-brown-400 text-[10px] tracking-widest'
         };
       default: // WAITING
         return {
-          icon: <HelpCircle className="h-4 w-4 text-slate-400" />,
-          color: 'bg-slate-50 border-slate-200 dark:bg-navy-900 dark:border-slate-800',
-          text: 'text-slate-400 dark:text-slate-500 font-normal',
-          subtext: 'text-slate-400 dark:text-slate-500 text-xs'
+          icon: <HelpCircle className="h-4 w-4 text-brown-400" />,
+          color: 'bg-cream-dark border-parchment dark:bg-dark-card dark:border-dark-border',
+          text: 'text-brown-400 dark:text-brown-300 font-normal',
+          subtext: 'text-brown-400 dark:text-brown-300 text-[10px] tracking-widest'
         };
     }
   };
@@ -100,7 +100,7 @@ export default function ApprovalTimeline({ odRequest }) {
   return (
     <div className="relative mt-8 max-w-xl mx-auto px-2">
       {/* Central Connector Line */}
-      <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-slate-200 dark:bg-slate-800 -translate-x-1/2"></div>
+      <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-terra via-parchment to-transparent -translate-x-1/2 opacity-40"></div>
 
       <div className="space-y-8">
         {pipeline.map((step) => {
@@ -108,15 +108,15 @@ export default function ApprovalTimeline({ odRequest }) {
           const styles = getStageStyles(state);
 
           return (
-            <div key={step.key} className="relative flex gap-6 items-start">
+            <div key={step.key} className="relative flex gap-6 items-start animate-fade-in">
               {/* Connector Node */}
-              <div className={`relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 z-10 ${styles.color}`}>
+              <div className={`relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 z-10 ${styles.color}`}>
                 {styles.icon}
               </div>
 
               {/* Node Card Details */}
-              <div className="flex-1 rounded-xl bg-slate-50/50 p-4 border border-slate-100 dark:bg-navy-900/40 dark:border-slate-800/40 transition-colors duration-200">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div className="flex-1 card-warm p-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-parchment dark:border-dark-border pb-3">
                   <h4 className={`text-sm ${styles.text}`}>{step.label}</h4>
                   <span className={styles.subtext}>
                     {state === 'APPROVED' && 'APPROVED'}
@@ -129,17 +129,17 @@ export default function ApprovalTimeline({ odRequest }) {
 
                 {/* Log Signature & Comments */}
                 {logDetails && (
-                  <div className="mt-3 border-t border-slate-200/50 pt-2 dark:border-slate-800/60">
-                    <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
-                      Evaluated by: <span className="text-slate-700 dark:text-slate-200">{logDetails.approver?.name}</span>
+                  <div className="mt-3 pt-2">
+                    <p className="text-[11px] font-medium text-brown-500 dark:text-brown-400">
+                      Evaluated by: <span className="text-brown-800 dark:text-cream font-bold">{logDetails.approver?.name}</span>
                     </p>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
+                    <p className="text-[10px] text-brown-400 dark:text-brown-300 mt-0.5">
                       Date: {formatTimestamp(logDetails.timestamp)}
                     </p>
                     {logDetails.remarks && (
-                      <div className="mt-2 rounded-lg bg-white/70 p-2.5 border border-slate-100 dark:bg-navy-900/80 dark:border-slate-800/60">
-                        <span className="text-[11px] text-slate-400 block mb-0.5">Remarks:</span>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 italic">
+                      <div className="mt-3 rounded-lg bg-cream dark:bg-dark-surface p-3 border border-parchment dark:border-dark-border">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-brown-400 block mb-1">Remarks:</span>
+                        <p className="text-xs text-brown-700 dark:text-brown-300 italic">
                           "{logDetails.remarks}"
                         </p>
                       </div>
@@ -148,7 +148,7 @@ export default function ApprovalTimeline({ odRequest }) {
                 )}
 
                 {state === 'ACTIVE' && (
-                  <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">
+                  <p className="mt-2 text-xs text-brown-400 dark:text-brown-300">
                     Currently under evaluation. An alert notification has been sent to this authority.
                   </p>
                 )}
